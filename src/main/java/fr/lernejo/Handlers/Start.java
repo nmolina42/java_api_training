@@ -15,7 +15,7 @@ public class Start implements HttpHandler {
     @Override
     public void handle(HttpExchange exg) throws IOException {
         if (exg.getRequestMethod().equals("POST")) {
-           if (JsonIsValide(exg)){
+           if (!JsonIsValide(exg)){
                StartRespond(exg);
            } else {
               BadRequestRespond(exg);
@@ -52,7 +52,6 @@ public class Start implements HttpHandler {
         try (OutputStream os = exg.getResponseBody()) {
             os.write(json.getBytes());
         }
-        System.out.println("Client connected");
     }
 
     private void WrongMethodeResponse(HttpExchange exg) throws IOException {
