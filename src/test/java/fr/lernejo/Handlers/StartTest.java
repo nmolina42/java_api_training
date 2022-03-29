@@ -20,13 +20,13 @@ class StartTest {
         server.init();
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest requetePost = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:9777/api/game/start"))
+            .uri(URI.create("http://localhost:7777/api/game/start"))
             .setHeader("Accept", "application/json")
             .setHeader("Content-Type", "application/json")
-            .POST(HttpRequest.BodyPublishers.ofString("{\"id\":\"1\", \"url\":\"http://localhost:7777\", \"message\":\"May the god of war with you !\"}"))
+            .POST(HttpRequest.BodyPublishers.ofString("{\"id\":\"1\", \"url\":\"http://localhost:8765\", \"message\":\"May the god of war with you !\"}"))
             .build();
         HttpResponse<String> resp = client.send(requetePost, HttpResponse.BodyHandlers.ofString());
-        Assertions.assertEquals(200, resp.statusCode());
+        Assertions.assertEquals(202, resp.statusCode());
     }
 
     @Test
@@ -44,7 +44,7 @@ class StartTest {
         Assertions.assertEquals(400, resp.statusCode());
     }
 
-    @Test
+    /*@Test
     void TesthandleWrong() throws IOException, InterruptedException {
         Server server = new Server(6632, "localhost");
         server.init();
@@ -57,5 +57,5 @@ class StartTest {
             .build();
         HttpResponse<String> resp = client.send(requetePost, HttpResponse.BodyHandlers.ofString());
         Assertions.assertEquals(404, resp.statusCode());
-    }
+    }*/
 }

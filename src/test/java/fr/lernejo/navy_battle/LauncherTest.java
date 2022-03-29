@@ -12,13 +12,13 @@ class LauncherTest {
     @Test
     void LauncherOneArg() throws IOException, InterruptedException {
         Launcher launch = new Launcher();
-        String[] port = {"9876"};
+        String[] port = {"9000"};
         launch.main(port);
     }
     @Test
     void LauncherTwoArg() throws IOException, InterruptedException {
         Launcher launch = new Launcher();
-        String[] port = {"9876","8765 http://localhost:9876"};
+        String[] port = {"9001","http://localhost:9000"};
         launch.main(port);
     }
 }
