@@ -16,11 +16,7 @@ public class Client {
         this.advUrl = url;
     }
 
-    public String getadvUrl(){
-        return this.advUrl;
-    }
-
-    public void start() throws IOException, InterruptedException {
+    public int start() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest requetePost = HttpRequest.newBuilder()
             .uri(URI.create(this.advUrl + "/api/game/start"))
@@ -29,6 +25,7 @@ public class Client {
             .POST(HttpRequest.BodyPublishers.ofString("{\"id\":\"1\", \"url\":\"http://localhost:" + this.port + "\", \"message\":\"Yo le rat\"}"))
             .build();
         HttpResponse<String> resp = client.send(requetePost, HttpResponse.BodyHandlers.ofString());
+        return resp.statusCode();
     }
 
 }
