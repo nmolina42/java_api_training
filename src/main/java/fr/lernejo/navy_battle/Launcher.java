@@ -11,6 +11,8 @@ public class Launcher {
             Server server = new Server(Integer.parseInt(args[0]), "localhost");
             server.init();
         }else if (args.length == 2) {
+            Server server = new Server(Integer.parseInt(args[0]), "localhost");
+            server.init();
             Client client = new Client(Integer.parseInt(args[0]), args[1]);
             client.start();
         }

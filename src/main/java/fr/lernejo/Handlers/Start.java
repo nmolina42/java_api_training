@@ -35,7 +35,7 @@ public class Start implements HttpHandler {
         InputStreamReader isr = new InputStreamReader(exg.getRequestBody());
         JSONObject jsonData = new JSONObject(new JSONTokener(isr));
         try {
-            File schemaFile = new File("src/main/resources/startJsonSchema.json");
+            File schemaFile = new File("src/main/Json/JsonStart.json");
             JSONTokener schemaData = new JSONTokener(new FileInputStream(schemaFile));
             JSONObject jsonSchema = new JSONObject(schemaData);
             Schema schemaValidator = SchemaLoader.load(jsonSchema);
