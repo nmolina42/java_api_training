@@ -11,7 +11,7 @@ public class Ping implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
         String body = "OK";
         exchange.sendResponseHeaders(200, body.length());
-        try (OutputStream os = exchange.getResponseBody()) { // (1)
+        try (OutputStream os = exchange.getResponseBody()) {
             os.write(body.getBytes());
         }
     }
